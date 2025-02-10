@@ -10,7 +10,8 @@
   "author": "Lennox Charles",
   "license": "MIT",
   "sails": {
-    "isHook": true
+    "isHook": true,
+    "hookName": "slack"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
