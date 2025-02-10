@@ -4,7 +4,8 @@
   "description": "This is a sails hook that helps you communicate with slack easily",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
   },
   "author": "Lennox Charles",
   "license": "MIT",
