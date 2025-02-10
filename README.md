@@ -1,4 +1,4 @@
-# Sentry SDK for Sails
+# Slack SDK for Sails
 
 A Sails hook for to easily setup up a connection between Sails and Slack via the slack webhook.
 
