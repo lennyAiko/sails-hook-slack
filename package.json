@@ -1,0 +1,24 @@
+{
+  "name": "sails-hook-slack",
+  "version": "0.0.1",
+  "description": "This is a sails hook that helps you communicate with slack easily",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lennox Charles",
+  "license": "MIT",
+  "sails": {
+    "isHook": true
+  },
+   "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  }, 
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.4.2"
+  }
+}
