@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "@slack/webhook": "^7.0.4",
-    "sails": "^1.5.14"
+    "sails": "^1.5.14",
+    "dotenv": "^16.4.7"
   }
 }

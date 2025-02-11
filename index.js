@@ -78,7 +78,7 @@ module.exports = function defineSlackHook(sails) {
         })
         sails.log('Slack hook initialized')
         sails.helpers.slack = async function (message, options = {}) {
-          const { channel, username, icon_emoji } = options
+          const { username, icon_emoji } = options
 
           try {
             await webhook.send({
