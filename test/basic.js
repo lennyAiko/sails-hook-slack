@@ -1,6 +1,6 @@
 var Sails = require('sails').Sails
 
-describe('Basic tests ::', function () {
+describe('Slack hook test ::', function () {
   // Var to hold a running sails app instance
   var sails
 

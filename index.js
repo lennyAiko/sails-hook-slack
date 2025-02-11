@@ -19,20 +19,24 @@ module.exports = function defineSlackHook(sails) {
       slack: {
         /**
          * The web hook URL for slack
+         * @type {string}
          */
         webhookUrl:
           process.env.SLACK_WEBHOOK_URL ||
           'https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX',
         /**
          * The default username for the slack message
+         * @type {string}
          */
         defaultUsername: process.env.SLACK_DEFAULT_USERNAME || 'Sails Logs',
         /**
          * The default icon for the slack message
+         * @type {string}
          */
         defaultIcon: process.env.SLACK_DEFAULT_ICON || ':boom:',
         /**
          * The log levels that should be sent to slack
+         * @type {string}
          */
         logLevels: process.env.SLACK_LOG_LEVELS || 'error,warn,debug'
       }
@@ -40,6 +44,10 @@ module.exports = function defineSlackHook(sails) {
 
     /**
      * Initializes the hook.
+     *
+     * @description
+     * This function is called after all other hooks have been initialized.
+     * It is used to override the logger to send messages to slack.
      */
     initialize: function () {
       sails.after('hook:logger:loaded', () => {
