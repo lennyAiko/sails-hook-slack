@@ -21,9 +21,7 @@ module.exports = function defineSlackHook(sails) {
          * The web hook URL for slack
          * @type {string}
          */
-        webhookUrl:
-          process.env.SLACK_WEBHOOK_URL ||
-          'https://hooks.slack.com/services/XXXXXXXXX/XXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX',
+        webhookUrl: process.env.SLACK_WEBHOOK_URL,
         /**
          * The default username for the slack message
          * @type {string}
@@ -55,8 +53,6 @@ module.exports = function defineSlackHook(sails) {
 
         const logLevels = sails.config.slack.logLevels.split(',')
 
-        const originalLogger = sails.log
-
         /**
          * Override the logger to send messages to slack
          * @param {string} level - The log level
@@ -66,11 +62,11 @@ module.exports = function defineSlackHook(sails) {
           if (sails.log[level]) {
             const originalFn = sails.log[level]
 
-            sails.log[level] = function (...args) {
+            sails.log[level] = async function (...args) {
               originalFn.apply(sails.log, args)
               const message = args.join(' ')
 
-              webhook
+              await webhook
                 .send({
                   text: `[${level.toUpperCase()}] ${message}`,
                   username: sails.config.slack.defaultUsername,
@@ -80,6 +76,22 @@ module.exports = function defineSlackHook(sails) {
             }
           }
         })
+        sails.log('Slack hook initialized')
+        sails.helpers.slack = async function (message, options = {}) {
+          const { channel, username, icon_emoji } = options
+
+          try {
+            await webhook.send({
+              text: message,
+              username: username || sails.config.slack.defaultUsername,
+              icon_emoji: icon_emoji || sails.config.slack.defaultIcon
+            })
+            sails.log('Slack message sent successfully.')
+          } catch (err) {
+            sails.log.error('Failed to send Slack message:', err)
+            throw err
+          }
+        }
       })
     }
   }
