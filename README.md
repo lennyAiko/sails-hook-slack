@@ -14,13 +14,19 @@ To use the Slack hook in your Sails.js application, add the following configurat
 
 ```javascript
 module.exports.slack = {
-  webhook: process.env.SLACK_WEBHOOK_URL
+  webhookUrl: process.env.SLACK_WEBHOOK_URL,
+  defaultUsername: process.env.SLACK_DEFAULT_USERNAME || 'Sails Logs',
+  defaultIcon: process.env.SLACK_DEFAULT_ICON || ':boom:',
+  logLevels: process.env.SLACK_LOG_LEVELS || 'error'
 }
 ```
 
 ## Configuration
 
-- `webhook`: Your Slack Webhook Url.
+- `webhookUrl`: Your Slack Webhook Url.
+- `defaultUsername`: The default username for sails to use when sending the message to Slack.
+- `defaultIcon`: The default icon for sails to use when sending the message to Slack.
+- `logLevels`: A comma separated list of log levels to send to Slack.
 
 ## License
 
