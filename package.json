@@ -1,7 +1,7 @@
 {
   "name": "sails-hook-slack",
-  "version": "0.0.1",
-  "description": "This is a sails hook that helps you communicate with slack easily",
+  "version": "0.0.2",
+  "description": "This is a sails hook that helps you communicate with slack easily.",
   "main": "index.js",
   "keywords": [
     "sails",
