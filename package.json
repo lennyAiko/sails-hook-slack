@@ -3,6 +3,14 @@
   "version": "0.0.1",
   "description": "This is a sails hook that helps you communicate with slack easily",
   "main": "index.js",
+  "keywords": [
+    "sails",
+    "slack",
+    "hook",
+    "webhook",
+    "sails-hook",
+    "sailsjs"
+  ],
   "scripts": {
     "test": "mocha -R spec",
     "prepare": "husky"
