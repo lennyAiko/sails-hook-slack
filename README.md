@@ -13,7 +13,6 @@ npm install sails-hook-slack
 To use the Slack hook in your Sails.js application, add the following configuration to your `config/slack.js` file:
 
 ```javascript
-require('dotenv').config()
 module.exports.slack = {
   webhookUrl: process.env.SLACK_WEBHOOK_URL,
   defaultUsername: process.env.SLACK_DEFAULT_USERNAME,
